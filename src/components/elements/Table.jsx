@@ -28,20 +28,20 @@ function Padels({ position }) {
     if (backward) move.z -= 0.1;
     if (rightward) {
       move.x -= 0.1;
-      if (move.x >= -0.3 && move.x <= 0.3 && factore.current + 0.1 <= 0.5) {
-        factore.current += 0.1
-        rotation.z = Math.PI * factore.current
-        console.log(factore.current)
-      }
+      // if (move.x >= -0.3 && move.x <= 0.3 && factore.current + 0.1 <= 0.5) {
+      //   factore.current += 0.1
+      //   rotation.z = Math.PI * factore.current
+      //   console.log(factore.current)
+      // }
     }
     if (leftward) {
       move.x += 0.1;
 
-      if (move.x > -0.3 && move.x < 0.3 && factore.current - 0.1 >= -0.5) {
-        factore.current -= 0.1
-        console.log(factore.current)
-        rotation.z = Math.PI * factore.current
-      }
+      // if (move.x > -0.3 && move.x < 0.3 && factore.current - 0.1 >= -0.5) {
+      //   factore.current -= 0.1
+      //   console.log(factore.current)
+      //   rotation.z = Math.PI * factore.current
+      // }
     }
     // console.log("move : ", move)
     move.x = Math.max(-2, Math.min(2, move.x))
@@ -51,7 +51,7 @@ function Padels({ position }) {
   });
   const ref = useRef();
   return (
-    <RigidBody colliders='trimesh' type='kinematicPosition' ref={ref} position={position} rotation={[-Math.PI * 0.5, 0, Math.PI * 0.5]}>
+    <RigidBody colliders='trimesh' type='kinematicPosition' ref={ref} position={position} rotation={[-Math.PI * 0.5, 0, 0]}>
       {/* <mesh position={position}>
         <boxGeometry args={[0.8, 0.2, 0.1]} />
         <meshStandardMaterial />
