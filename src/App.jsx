@@ -15,7 +15,7 @@ function App() {
       { name: "rightward", keys: ["ArrowRight", "KeyD"] },
       { name: "jump", keys: ["Space"] }]
       }>
-      <Canvas>
+      <Canvas camera={{fov: 75, position:[0,2,-8]}}>
         <OrbitControls />
         <ambientLight />
         <directionalLight position={[0, 1, 3]} />
