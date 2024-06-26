@@ -23,27 +23,16 @@ function Padels({ position }) {
   const padels = useLoader(OBJLoader, 'pad.obj')
   useFrame((state) => {
     const move = ref.current.translation()
-    console.log(move)
+    // console.log(move)
     const rotation = ref.current.rotation()
     const { forward, backward, leftward, rightward, jump } = getKeysClicked();
     if (forward) move.z += 0.1;
     if (backward) move.z -= 0.1;
     if (rightward) {
       move.x -= 0.1;
-      // if (move.x >= -0.3 && move.x <= 0.3 && factore.current + 0.1 <= 0.5) {
-      //   factore.current += 0.1
-      //   rotation.z = Math.PI * factore.current
-      //   console.log(factore.current)
-      // }
     }
     if (leftward) {
       move.x += 0.1;
-
-      // if (move.x > -0.3 && move.x < 0.3 && factore.current - 0.1 >= -0.5) {
-      //   factore.current -= 0.1
-      //   console.log(factore.current)
-      //   rotation.z = Math.PI * factore.current
-      // }
     }
     move.x = Math.max(-2, Math.min(2, move.x))
     move.z = Math.max(-2.5 - 4, Math.min(-2.7, move.z))
@@ -52,11 +41,11 @@ function Padels({ position }) {
   });
   
   return (
-    <RigidBody colliders='trimesh' type='kinematicPosition' ref={ref} position={position} rotation={[-Math.PI * 0.5, 0, 0]}>
-      {/* <mesh position={position}>
+    <RigidBody colliders='trimesh' type='kinematicPosition' ref={ref} position={position} rotation={[-Math.PI * 0.5, 0, 0]} onCollisionEnter={(e)=>console.log("event ",e)}>
+      <mesh position={position}>
         <boxGeometry args={[0.8, 0.2, 0.1]} />
         <meshStandardMaterial />
-      </mesh> */}
+      </mesh>
       <primitive object={padels} scale={0.03} />
     </RigidBody>
   );
