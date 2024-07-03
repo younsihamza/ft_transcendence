@@ -26,7 +26,10 @@ export default {
       thirdColor: 'hsl(275,39%,70%)',
       forthColor:'#C77DFF',
       linkColor:'#BC9FD1',
-      linkBgColor:'#2C2136'
+      linkBgColor:'#2C2136',
+      profilebg:"#30243C",
+      MatchText:"#C7C072",
+      MatchVictory:"#395446"
 
     },
     screens: {
@@ -49,7 +52,10 @@ export default {
     },
     extend: {
       width:{
-         128:'32rem'
+         '128':'32rem',
+      },
+      height:{
+        '11/12':'90%'
       }
     },
   },

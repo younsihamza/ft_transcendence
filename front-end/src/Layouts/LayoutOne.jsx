@@ -1,11 +1,11 @@
-import SideBar from "../Components/SideBar"
-import NavBar from "../Components/NavBar"
-import BottomBar from "../Components/BottomBar"
+import SideBar from "../Components/layout/SideBar"
+import NavBar from "../Components/layout/NavBar"
+import BottomBar from "../Components/layout/BottomBar"
 import { Outlet } from "react-router"
 export default function LayoutOne(){
     return (
         <>
-            <div className="flex h-screen   flex-row">
+            <div className="flex h-screen overflow-hidden flex-row">
                     <div className="w-28  bg-primaryColor  xsm:hidden lg:block text-white ">
                        <SideBar />
                     </div>

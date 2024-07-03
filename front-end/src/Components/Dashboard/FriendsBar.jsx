@@ -2,7 +2,7 @@ import { AiOutlineUserAdd } from "react-icons/ai";
 import Friend from "./Friend";
 export default function FriendsBar() {
     return (
-        <div className="bg-secondaryColor friendsBar  xsm:w-12 sm:w-16 xl:w-4/5   h-2/5 xl:h-full xl:p-5">
+        <div className="bg-secondaryColor rounded-3xl  xsm:w-12 sm:w-16 xl:w-4/5   h-2/5 xl:h-full xl:p-5">
             <h3 className=" xsm:hidden xl:block text-center text-2xl">Friends</h3>
                 <div className=" xsm:hidden  xl:flex xl:px-4 xl:pt-4 xl:justify-between xl:center">
                     <p className="text-2xl">Online</p>

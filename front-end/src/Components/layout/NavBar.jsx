@@ -4,7 +4,7 @@ import { IoNotifications } from "react-icons/io5";
 import { LiaCoinsSolid } from "react-icons/lia";
 export default function NavBar() {
     return (
-        <div className="  xsm:py-8  flex xsm:h-full  items-center justify-between lg:justify-end sm:pr-12  ">
+        <div className="  xsm:py-4  flex xsm:h-full  items-center justify-between lg:justify-end">
             <div className="lg:hidden  sm:pl-12 xsm:pl-4">
                 <h1 className="xsm:text-lg text-2xl font-normal ">PONGY</h1>
             </div>

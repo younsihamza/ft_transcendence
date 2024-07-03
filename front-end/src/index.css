@@ -34,3 +34,13 @@
     }
     
 }
+
+.pic-center
+{
+    top:-16px;
+    left: -16px;
+}
+
+.dash-main-wrapper {
+    height: calc(100% - 420px);
+}
