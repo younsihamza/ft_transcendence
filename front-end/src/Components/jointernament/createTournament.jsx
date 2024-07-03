@@ -9,14 +9,14 @@ export default function CreateTournament() {
         const newArray = [...tournaments,value]
         setTournaments(newArray)
     }
-    return (<div className='border  border-forthColor w-[75%]  text-white flex flex-col items-center h-[65%] justify-between bg-linkBgColor py-3 rounded-md'>
+    return (<div className='border  border-forthColor lg:w-[90%]  xsm:w-[90%]  text-white flex flex-col items-center h-[65%] justify-evenly bg-linkBgColor py-3 rounded-md'>
         <div className='flex flex-col items-center'>
-            <h1 className='font-Valorax text-7xl drop-shadow-2xl text-border' style={{ textShadow: `2px 2px 4px #BC9FD1` }}>PING PONG</h1>
-            <h3 className='font-Valorax  text-xl'>TOURNAMENT</h3>
+            <h1 className='font-Valorax text-[5vw] drop-shadow-2xl text-border' style={{ textShadow: `2px 2px 4px #BC9FD1` }}>PING PONG</h1>
+            <h3 className='font-Valorax  text-[2vw]'>TOURNAMENT</h3>
         </div>
         <div className='flex  flex-col  w-[80%] h-[65%] gap-4'>
-            <div className='flex justify-between px-4 w-[100%]'>
-                <h2 className='font-bold'>TOURNAMENT LIST</h2>
+            <div className='flex justify-between px-4 w-[100%] text-[1.5vw]'>
+                <h2 className='font-bold '>TOURNAMENT LIST</h2>
                 <button className="font-bold hover:opacity-75" onClick={()=>setIsmodel(true)}>CREATE NEW</button>
             </div>
             <div className='h-[1px] w-[100%] bg-white' />

@@ -1,7 +1,11 @@
 
 
 up :  build down
-	sudo docker run -d -p 5173:5173 --name myapp -v .:/usr/src/app myapp \
+	@if [ -z "$$(sudo docker ps -aq --filter name=myapp)" ]; then \
+			sudo docker run -d -p 5173:5173 --name myapp -v .:/usr/src/app myapp; \
+		else \
+			sudo docker start myapp; \
+		fi \
 	&& sudo docker exec -it myapp /bin/bash -c "npm run dev"
 
 build :
