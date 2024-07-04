@@ -9,7 +9,7 @@ export default function Challenge({setopen}) {
         setOpen(!open)
     }
     return (
-        <div className='bg-secondaryColor  flex-col xsm:h-[80%] lg:h-[97%] text-white items-center rounded-[40px] justify-evenly  right-2  flex  xsm:absolute lg:relative '>
+        <div className='bg-secondaryColor  flex-col xsm:h-[80%] lg:h-[97%] text-white items-center rounded-[40px] justify-evenly  right-2  flex  xsm:absolute lg:relative'>
             <h1 className='font-bold lg:text-xl xsm:text-[8px] sm:text-[10px]'> CHALLENGE</h1>
             <div className='flex  flex-col w-[93%] gap-5 h-[40%]'>
                 <h2 className=' font-medium opacity-90 lg:text-xl xsm:text-[8px] sm:text-[10px]'>in lobby</h2>
