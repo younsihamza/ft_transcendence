@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import FriendsBar from "../FriendsBar";
-import Challenge from "./Challenge";
-import CreateTournament from "./createTournament";
+import FriendsBar from "../Components/FriendsBar";
+import Challenge from "../Components/TournamentJoin/Challenge";
+import CreateTournament from "../Components/TournamentJoin/createTournament";
 
-export default function JoinPage()
+export default function TournamentJoin()
 {
     const [windowWidth, setWindowWidth] =  useState(window.innerWidth)
     useEffect(()=>{
