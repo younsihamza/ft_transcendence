@@ -18,8 +18,11 @@ export default function ModelCreate({ setTournaments, setIsmodel }) {
         setValuePlayers(parseInt(e.target.value, 10))
         console.log(valuePlayers)
     }
+    const handleSubmit = (e) => {
+        e.preventDefault()
+    }
     return (<div className='absolute top-0 bottom-0 left-0 right-0 bg-opacity-60 bg-secondaryColor z-10  flex justify-center items-center '>
-        <form className='opacity-100 bg-secondaryColor  py-5 px-5 flex flex-col justify-center items-center gap-8 border-2  border-forthColor rounded-lg max-w-[800px] min-w-[320px]' >
+        <form className='opacity-100 bg-secondaryColor  py-5 px-5 flex flex-col justify-center items-center gap-8 border-2  border-forthColor rounded-lg max-w-[800px] min-w-[320px]'  onSubmit={handleSubmit}>
             <h1 className="font-Valorax xsm:text-lg md:text-xl">CREATE NOW TOURNAMENT</h1>
             <div className='flex  h-[100%] w-[100%] gap-4 items-center flex-wrap justify-center'>
                 <div className='flex flex-col  w-[40%]  min-w-[250px] items-center '>
@@ -45,14 +48,16 @@ export default function ModelCreate({ setTournaments, setIsmodel }) {
                     {[...Array(valuePlayers)].map((item, index) => (
                     <div className='flex flex-col w-[80px] min-w-[150px] items-center' key={index}>
                         <label className='text-xl font-bold'>Player {index + 1} :</label>
-                        <input type='text' placeholder='player name' className='text-forthColor w-[100%] h-[30px] text-xl font-bold px-4 border-2 border-forthColor rounded-lg border-solid focus:outline-none' />
+                        <input type='text' placeholder='player name' className='text-forthColor w-[100%] h-[30px] text-xl font-bold px-4 border-2 border-forthColor rounded-lg border-solid focus:outline-none' name={"player-"+(index + 1)}/>
                     </div>
                     ))}
                 </div>}
             <div className='flex justify-evenly h-[100%] w-[100%]'>
-                <button className='border-2 h-[30px] w-[30%] rounded-lg border-forthColor font-bold hover:opacity-70' onClick={() => { setTournaments({ gameName: "PING PONG", players: valuePlayers, number: 0 }); setIsmodel(false) }}>CREATE</button>
+                <button className='border-2 h-[30px] w-[30%] rounded-lg border-forthColor font-bold hover:opacity-70' type='submit' >CREATE</button>
                 <button className='border-2 w-[30%] h-[30px] rounded-lg border-forthColor font-bold hover:opacity-70' onClick={() => setIsmodel(false)}>CLOSE</button>
             </div>
         </form>
     </div>)
 }
+
+// onClick={() => { setTournaments({ gameName: "PING PONG", players: valuePlayers, number: 0 }); setIsmodel(false) }}

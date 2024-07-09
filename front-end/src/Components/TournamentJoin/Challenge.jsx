@@ -2,6 +2,7 @@ import { useState } from "react";
 import Friend from "./Friend";
 import { FaArrowCircleRight} from 'react-icons/fa';
 import { IoIosArrowUp } from "react-icons/io";
+import { ChallengeData } from "../data/challangeData";
 
 export default function Challenge({setopen}) {
     const [open, setOpen] = useState(true)
@@ -14,41 +15,17 @@ export default function Challenge({setopen}) {
             <div className='flex  flex-col w-[93%] gap-5 h-[40%]'>
                 <h2 className=' font-medium opacity-90 lg:text-xl xsm:text-[8px] sm:text-[10px]'>in lobby</h2>
                 <div className='  flex flex-col overflow-auto gap-5'>
-                    <Friend icon={true} hidden={open}/>
-                    <Friend icon={true} hidden={open}/>
-                    <Friend icon={true} hidden={open}/>
-                    <Friend icon={true} hidden={open}/>
-                    <Friend icon={true} hidden={open}/>
-                    <Friend icon={true} hidden={open}/>
-                    <Friend icon={true} hidden={open}/>
-                    <Friend icon={true} hidden={open}/>
-                    <Friend icon={true} hidden={open}/>
-                    <Friend icon={true} hidden={open}/>
-                    <Friend icon={true} hidden={open}/>
-                    <Friend icon={true} hidden={open}/>
-                    <Friend icon={true} hidden={open}/>
+                    {ChallengeData.inlobby.map((item, index) => <Friend icon={true} hidden={open} PlayerName={item.name}/>)}
                 </div>
             </div>
             <div className="w-[80%]  h-[2px] required bg-gray-400 flex" />
-            <button className={`absolute left-[-20px] top-[50%] ${open ? 'rotate-[-90deg]' : 'rotate-[90deg]'} bg-secondaryColor p-3  rounded-full sm:block lg:hidden 2xl:hidden cursor-pointer hover:opacity-75 `} onClick={handleOpen}>
+            <button className={`absolute left-[-20px] top-[50%] ${open ? 'rotate-[-90deg]' : 'rotate-[90deg]'} bg-secondaryColor p-3  rounded-full sm:block lg:hidden 2xl:hidden cursor-pointer  `} onClick={handleOpen}>
                 <IoIosArrowUp />
             </button>
             <div className='flex  flex-col w-[93%] gap-5 h-[40%]'>
                 <h2 className='text-xl font-medium opacity-90 lg:text-xl xsm:text-[8px] sm:text-[10px]'>In game</h2>
                 <div className=' flex flex-col overflow-auto gap-5 '>
-                    <Friend gameName={"playing tic tac toe"}  hidden={open}/>
-                    <Friend gameName={"playing tic tac toe"}  hidden={open}/>
-                    <Friend gameName={"playing tic tac toe"}  hidden={open}/>
-                    <Friend gameName={"playing tic tac toe"}  hidden={open}/>
-                    <Friend gameName={"playing tic tac toe"}  hidden={open}/>
-                    <Friend gameName={"playing tic tac toe"}  hidden={open}/>
-                    <Friend gameName={"playing tic tac toe"}  hidden={open}/>
-                    <Friend gameName={"playing tic tac toe"}  hidden={open}/>
-                    <Friend gameName={"playing tic tac toe"}  hidden={open}/>
-                    <Friend gameName={"playing tic tac toe"}  hidden={open}/>
-                    <Friend gameName={"playing tic tac toe"}  hidden={open}/>
-                    <Friend gameName={"playing tic tac toe"}  hidden={open}/>
-                    <Friend gameName={"playing tic tac toe"}  hidden={open}/>
+                    {ChallengeData.ingame.map((item, index) => <Friend gameName={item.gameName} hidden={open} PlayerName={item.name}/>)}
                 </div>
             </div>
         </div>
