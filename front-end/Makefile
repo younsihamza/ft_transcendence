@@ -1,25 +1,24 @@
 
-
 up :  build down
-	@if [ -z "$$(sudo docker ps -aq --filter name=myapp)" ]; then \
-			sudo docker run -d -p 5173:5173 --name myapp -v .:/usr/src/app myapp; \
+	@if [ -z "$$(docker ps -aq --filter name=myapp)" ]; then \
+			docker run -d -p 3000:3000 --name myapp -v ${PWD}/src:/usr/src/app/src myapp; \
 		else \
-			sudo docker start myapp; \
+			docker start myapp; \
 		fi \
-	&& sudo docker exec -it myapp /bin/bash -c "npm run dev"
+	&&  docker exec -it myapp /bin/bash -c "npm run dev"
 
 build :
-	@if [ -z "$$(sudo docker images -q myapp)" ]; then \
-			sudo docker build -t myapp .; \
+	@if [ -z "$$( docker images -q myapp)" ]; then \
+			docker build -t myapp .; \
 		else \
 			echo "Image already exists"; \
 		fi
 
 down : 
-	@if [ -z "$$(sudo docker ps -q --filter name=myapp)" ]; then \
+	@if [ -z "$$( docker ps -q --filter name=myapp)" ]; then \
 			echo "Container is not running"; \
 		else \
-			sudo docker stop myapp && sudo docker rm myapp; \
+			 docker stop myapp &&  docker rm myapp; \
 		fi
 clean : down 
-	sudo  docker rmi myapp
+	  docker rmi myapp
