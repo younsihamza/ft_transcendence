@@ -1,4 +1,4 @@
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import 'ldrs/hourglass'
@@ -6,7 +6,8 @@ import { useState } from 'react';
 
 export default function Friend({ icon = false, gameName, hidden = false,PlayerName }) {
     const  [WaitRequest, setwaitRequest] = useState(false)
-    const notify = () => {toast.info("Send Match Request to Hyounsi", { theme: 'dark' })
+    const notify = () => {
+    toast.success("Match Request Sent to "+ PlayerName, { theme: 'dark' })
     setwaitRequest(true)
     setTimeout(() => {
         setwaitRequest(false)
@@ -19,7 +20,8 @@ export default function Friend({ icon = false, gameName, hidden = false,PlayerNa
                 <h3 className='font-medium text-ellipsis overflow-hidden whitespace-nowrap w-[100px]'>{PlayerName}</h3>
                 <p className='text-xs opacity-70 text-ellipsis overflow-hidden whitespace-nowrap'>{icon ? "in lobby" : gameName}</p>
             </div>
-            {icon && (!WaitRequest ? <button onClick={notify}><img src="./png.png" className="w-5 h-5" /><ToastContainer autoClose={3000} /> </button>: <l-hourglass size="40"bg-opacity="0.1" speed="1.75" color="white" ></l-hourglass>)}
+            
+            {icon && (!WaitRequest ? <button onClick={notify}><img src="./png.png" className="w-5 h-5" /> </button>: <l-hourglass size="40"bg-opacity="0.1" speed="1.75" color="white" ></l-hourglass>)}
         </div>
     </div>)
 }

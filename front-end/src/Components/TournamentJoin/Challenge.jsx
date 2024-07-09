@@ -3,6 +3,7 @@ import Friend from "./Friend";
 import { FaArrowCircleRight} from 'react-icons/fa';
 import { IoIosArrowUp } from "react-icons/io";
 import { ChallengeData } from "../data/challangeData";
+import { ToastContainer } from 'react-toastify';
 
 export default function Challenge({setopen}) {
     const [open, setOpen] = useState(true)
@@ -28,6 +29,7 @@ export default function Challenge({setopen}) {
                     {ChallengeData.ingame.map((item, index) => <Friend gameName={item.gameName} hidden={open} PlayerName={item.name}/>)}
                 </div>
             </div>
+            <ToastContainer autoClose={5000} />
         </div>
     )
 }

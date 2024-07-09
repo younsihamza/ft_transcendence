@@ -22,7 +22,7 @@ export default function CreateTournament() {
             <div className='h-[1px] w-[100%] bg-white' />
 
             <div className="text-xl font-bold overflow-auto flex flex-col gap-5">
-                {tournaments.map((item)=><Tournament gameName={item.gameName} players={item.players} />)}
+                {tournaments.map((item , index)=><Tournament key={index} gameName={item.gameName} players={item.players} />)}
             </div>
         </div>
        {ismodel && <ModelCreate setTournaments={addNewTournament} setIsmodel={setIsmodel}/>}
