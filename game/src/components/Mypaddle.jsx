@@ -10,17 +10,17 @@ export default function MyPaddle() {
         const move = get()
         const currentPosition  = ref.current.translation()
         if(move.left)
-            currentPosition.x -= 0.01
+            currentPosition.x -= 0.04
         if (move.right)
-            currentPosition.x += 0.01
-        if(currentPosition.x >-0.40 && currentPosition.x < 0.40)
+            currentPosition.x += 0.04
+        if(currentPosition.x >-0.75 && currentPosition.x < 0.75)
             ref.current.setNextKinematicTranslation(currentPosition)
     })
   return (
     <>
     <RigidBody type='kinematicPosition' ref={ref}>
-      <mesh position={[0, 0.1, 0.92]}>
-        <boxGeometry args={[0.2, 0.1, 0.05]} />
+      <mesh position={[0, 0.1, 1.92]}>
+        <boxGeometry args={[0.5, 0.1, 0.05]} />
         <meshStandardMaterial color={"purple"} />
       </mesh>
     </RigidBody>

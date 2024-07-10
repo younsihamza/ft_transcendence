@@ -21,8 +21,8 @@ export default function Game()
             <Table/>
             <Ball/>
             <Walls/>
-            <MyPaddle/>
             <OtherPlayer/>
+            <MyPaddle/>
         </Physics>
     </KeyboardControls>
     </>)

@@ -4,22 +4,23 @@ import { useRef } from "react";
 
 export default function Ball()
 {
+    const positionPall = useRef({vx: 0.05, vz: 0.05, x: 0, z: 0.1 })
     const ref =  useRef()
     useFrame(()=>{
-        const ballspeed = 0.1
-        const  currentPosition = ref.current.translation()
-        currentPosition.x = ballspeed*Math.cos( currentPosition.x +20)
-        currentPosition.z = ballspeed*-Math.sin(currentPosition.z+20);
-        ref.current.setNextKinematicTranslation(currentPosition)
-        console.log(currentPosition)
+        positionPall.current.x += positionPall.current.vx 
+        positionPall.current.z += positionPall.current.vz
+        if( positionPall.current.z >= 2 || positionPall.current.z <= -2 )
+            positionPall.current.vz *= -1   
+        if( positionPall.current.x >= 1 || positionPall.current.x <= -1 )
+            positionPall.current.vx *= -1   
+        ref.current.position.x = positionPall.current.x
+        ref.current.position.z = positionPall.current.z
 
     })
     return (
-        <RigidBody  ref={ref} type='kinematicPosition'>
-        <mesh position={[0,1,0]}>
+        <mesh position={[0,0.1,0]} ref={ref}>
             <sphereGeometry args={[0.03]}/>
-            <meshStandardMaterial color={'blue'}/>
+            <meshStandardMaterial color={'red'}/>
         </mesh>
-        </RigidBody>
     )
 }

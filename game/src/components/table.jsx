@@ -5,7 +5,7 @@ export default function Table() {
     <>
     <RigidBody colliders='cuboid' type='fixed'>
       <mesh>
-        <boxGeometry args={[1, 0.1, 2]} />
+        <boxGeometry args={[2, 0.1, 4]} />
         <meshStandardMaterial />
       </mesh>
     </RigidBody>
