@@ -22,7 +22,7 @@ export default function Game()
             <Ball/>
             <Walls/>
             <OtherPlayer/>
-            <MyPaddle/>
+            {/* <MyPaddle/> */}
         </Physics>
     </KeyboardControls>
     </>)

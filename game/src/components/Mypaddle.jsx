@@ -24,6 +24,7 @@ export default function MyPaddle() {
         <meshStandardMaterial color={"purple"} />
       </mesh>
     </RigidBody>
+    
     </>
   );
 }

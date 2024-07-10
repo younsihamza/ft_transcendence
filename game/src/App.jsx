@@ -13,7 +13,7 @@ function App() {
     <div style={{ width: "100vw", height: "100vh",  background: 'black'}} >
       <Canvas  camera={{position: [0, 1, 5], fav: 75}} >
         <ambientLight/>
-        <OrbitControls />
+        <OrbitControls/>
         <Game/>
       </Canvas>
     </div>
