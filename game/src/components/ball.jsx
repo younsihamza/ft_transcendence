@@ -24,25 +24,22 @@ export default function Ball()
         positionBall.current.z += positionBall.current.vz
         if( positionBall.current.z >= 2.2 || positionBall.current.z <= -2 )
             {
-                positionBall.current.z = 0
+                // positionBall.current.z = 0
                 positionBall.current.vz *= -1
-                positionBall.current.vx *= -1
-                positionBall.current.x = 1
+                // positionBall.current.vx *= -1
+                // positionBall.current.x = 1
             }
         if( positionBall.current.x >= 2 || positionBall.current.x <= 0 )
             positionBall.current.vx *= -1
         if((positionBall.current.z >= positionPaddle.z -0.05  && positionBall.current.z <= positionPaddle.z  )  &&
          (positionBall.current.x >= positionPaddle.x -0.3  && positionBall.current.x <= positionPaddle.x  + 0.3))
         {
-            const d =  positionPaddle.x - positionBall.current.x
-            console.log(d)
+            const collisionPosition =  positionPaddle.x - positionBall.current.x
             positionBall.current.vz *=  -1 
-            positionBall.current.vx = d *-0.2
+            positionBall.current.vx = collisionPosition * -0.2
         }
-        // console.log(positionPaddle,positionBall.current)
         ref.current.position.x = positionBall.current.x
         ref.current.position.z = positionBall.current.z
-
     })
     return (
         <>
