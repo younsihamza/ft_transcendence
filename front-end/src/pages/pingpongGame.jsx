@@ -1,20 +1,17 @@
-import { useMemo, useRef, useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import { Canvas, useFrame } from "@react-three/fiber";
-import "./App.css";
-import Game from "./components/game";
-import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
-import { Html } from "@react-three/drei";
+import { useRef, useState } from "react";
+import { Canvas } from "@react-three/fiber";
+// import Game from "./components/game";
+import {  PerspectiveCamera,Stage } from "@react-three/drei";
 import * as THREE  from 'three'
+import Game from "../Components/PingPongGame/game";
 
-function App() {
+function PingPongGame() {
   const ref =useRef()
   const currentCamera = useRef(0)
   const cameraPositions = useRef([
-    {rotation: {x: -Math.PI/2, y: 0, z: -Math.PI/2}, position: {x:1,y:2,z:0}},
-    {rotation: {x: -Math.PI/2, y: -1, z: -Math.PI/2}, position: {x:-1,y:2,z:0}},
-    {rotation: {x: -0.2, y: 0, z: 0}, position: {x:1,y:1,z:3}},
+    {rotation: {x: -Math.PI/2, y: 0, z: -Math.PI/2}, position: {x:0,y:7,z:0}},
+    {rotation: {x: -Math.PI/2, y: -1, z: -Math.PI/2}, position: {x:-4,y:7,z:0}},
+    {rotation: {x: 0, y: 0, z: 0}, position: {x:0,y:1,z:3.5}},
   ])
   const handleCamera = ()=>{
     const { rotation, position } = cameraPositions.current[currentCamera.current];
@@ -41,18 +38,21 @@ function App() {
   //   ref.current.rotation.set(...vr)
   //   ref.current.position.set(...vp)
   // })
+  
   return (
     <>
-      <div style={{ width: "70vw", height: "70vh", background: "black" }}>
-        <Canvas>
+      <div style={{ background: "white" }} className="h-[90%] w-[90%] flex flex-col items-center justify-center">
+        <Canvas   className="h-[100%] w-[90%] flex flex-col items-center justify-center">
           <PerspectiveCamera ref={ref}
             makeDefault
-            rotation={[-0.2, 0 , 0]}
+            rotation={[0, 0 , 0]}
             fov={75}
-            position={[1, 1,3]}
+            position={[0, 1,3.5]}
           />
           <ambientLight />
-          <Game />
+          <Stage   adjustCamera={true} intensity={1}  environment="city" >
+            <Game />
+          </Stage>
         </Canvas>
         <button onClick={handleCamera}>Camera {currentCamera.current}</button>
       </div>
@@ -60,4 +60,4 @@ function App() {
   );
 }
 
-export default App;
+export default PingPongGame;

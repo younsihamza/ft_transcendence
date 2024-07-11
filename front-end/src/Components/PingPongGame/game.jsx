@@ -1,12 +1,9 @@
 import { KeyboardControls } from "@react-three/drei";
 import Ball from "./ball";
-import MyPaddle from "./Mypaddle";
-import OtherPlayer from "./OtherPaddle";
 import Table from "./table";
 import Walls from "./walls";
 import { Physics } from "@react-three/rapier";
 import  {useMemo} from  'react'
-import { Html } from "@react-three/drei";
 
 export default function Game()
 {
@@ -18,13 +15,9 @@ export default function Game()
       ], [])
     return (<>
     <KeyboardControls map={map}>
-        <Physics debug>
             <Table/>
             <Ball/>
             <Walls/>
-            {/* <OtherPlayer/> */}
-            {/* <MyPaddle/> */}
-        </Physics>
     </KeyboardControls>
     </>)
 }

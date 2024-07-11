@@ -7,10 +7,10 @@ export default function Ball()
 {
 
     const  [, get] = useKeyboardControls()
+    const ref =  useRef()
     const refs= useRef()
     const  OtherPaddleRef = useRef()
     const positionBall = useRef({vx: 0.05, vz: 0.05, x: 0, z: 0.1 })
-    const ref =  useRef()
     useFrame(()=>{
         const move = get()
         const positionPaddle  = refs.current.position
@@ -39,10 +39,16 @@ export default function Ball()
         positionBall.current.z += positionBall.current.vz
         if( positionBall.current.z >= 2.8 || positionBall.current.z <= -2.8 )
             {
-                // positionBall.current.z = 0
-                positionBall.current.vz *= -1
-                // positionBall.current.vx *= -1
-                // positionBall.current.x = 1
+                positionBall.current.z = 0
+                if(positionBall.current.vz < 0)
+                    positionBall.current.vz = 0.05
+                else 
+                    positionBall.current.vz = -0.05
+                if(positionBall.current.vx < 0 )
+                    positionBall.current.vx = 0.05 
+                else
+                    positionBall.current.vx = -0.05 
+                positionBall.current.x = 1
             }
         if( positionBall.current.x >= 2.01 || positionBall.current.x <= 0.01 )
             positionBall.current.vx *= -1
