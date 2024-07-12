@@ -5,6 +5,7 @@ import {  PerspectiveCamera,Stage } from "@react-three/drei";
 import * as THREE  from 'three'
 import Game from "../Components/PingPongGame/game";
 
+
 function PingPongGame() {
   const ref =useRef()
   const currentCamera = useRef(0)
@@ -42,7 +43,7 @@ function PingPongGame() {
   return (
     <>
       <div className="h-[100%] w-[100%] flex flex-col items-center justify-center">
-        <div className="h-[50%] w-[90%] rounded-md flex justify-center items-center ">
+        <div className="h-[50%] w-[90%] rounded-md flex justify-center items-center text-white">
           <Canvas >
             <PerspectiveCamera ref={ref}
               makeDefault
@@ -56,8 +57,8 @@ function PingPongGame() {
             </Stage>
           </Canvas>
         </div>
+        <button className="bg-gray-300" onClick={handleCamera}>Camera {currentCamera.current}</button>
       </div>
-        <button onClick={handleCamera}>Camera {currentCamera.current}</button>
     </>
   );
 }

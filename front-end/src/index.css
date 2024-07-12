@@ -40,8 +40,11 @@
 @font-face {
     font-family: 'Valorax'; /* Use a custom name for your font */
     src: url('valorax.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Plaguard'; /* Use a custom name for your font */
+    src: url('Plaguard.otf') format('opentype');
   }
 
 

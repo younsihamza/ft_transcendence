@@ -52,7 +52,8 @@ export default {
          128:'32rem'
       },
       fontFamily:{
-        'Valorax':['Valorax','sans-serif']
+        'Valorax':['Valorax','sans-serif'],
+        'Plaguard':['plaguard','sans-serif']
       },
     },
   },
