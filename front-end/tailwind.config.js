@@ -27,7 +27,7 @@ export default {
       forthColor:'#C77DFF',
       linkColor:'#BC9FD1',
       linkBgColor:'#2C2136',
-      whiteTrans: '#FFFFFF4D'
+      whiteTrans: '#221B35CC'
 
     },
     screens: {

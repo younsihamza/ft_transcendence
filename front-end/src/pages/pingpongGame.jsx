@@ -38,7 +38,7 @@ function PingPongGame() {
       <div className="h-[100%] w-[100%] flex flex-col items-center justify-center">
         <Header gameName={"PING PONG"}/>
         <div className=" h-[70%] relative xsm:w-[96%] md:w-[80%] max-w-[1400px] rounded-md flex justify-center items-center text-white flex-col bg-secondaryColor border-[2px] border-forthColor">
-        {/* <Win/> */}
+        <Win/>
         <div className=" flex  px-5 mt-5 w-[100%] justify-center items-center  max-w-[1024px] xsm:gap-2 lg:gap-9 ">
           <FirstPlayer name="hamza" level="6" image="hyounsi.png" score={2} />
           <Timer />
