@@ -26,7 +26,8 @@ export default {
       thirdColor: 'hsl(275,39%,70%)',
       forthColor:'#C77DFF',
       linkColor:'#BC9FD1',
-      linkBgColor:'#2C2136'
+      linkBgColor:'#2C2136',
+      whiteTrans: '#FFFFFF4D'
 
     },
     screens: {
@@ -53,7 +54,9 @@ export default {
       },
       fontFamily:{
         'Valorax':['Valorax','sans-serif'],
-        'Plaguard':['plaguard','sans-serif']
+        'Plaguard':['plaguard','sans-serif'],
+        'poppins': ['poppins','sans-serif'],
+        'inter': ['inter','sans-serif'],
       },
     },
   },

@@ -39,16 +39,24 @@
 
 @font-face {
     font-family: 'Valorax'; /* Use a custom name for your font */
-    src: url('valorax.otf') format('opentype');
+    src: url('font/valorax.otf') format('opentype');
   }
 
   @font-face {
     font-family: 'Plaguard'; /* Use a custom name for your font */
-    src: url('Plaguard.otf') format('opentype');
+    src: url('font/Plaguard/Plaguard.otf') format('opentype');
+  }
+  @font-face {
+    font-family: poppins;
+    src: url('font/Poppins/Poppins-Bold.ttf');
+  }
+  
+  @font-face {
+    font-family: inter;
+    src: url('font/Inter/static/Inter-Light.ttf');
   }
 
-
   .text-border {
-    -webkit-text-stroke: 1px #BC9FD1; /* Adjust the pixel value and color as needed */
+    -webkit-text-stroke: 0.1px #C77DFF; /* Adjust the pixel value and color as needed */
     color: white; /* Text color */
   }

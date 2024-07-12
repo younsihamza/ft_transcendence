@@ -80,11 +80,11 @@ export default function Ball()
             </mesh>
             <mesh position={[1, 0.1, 1.92]} ref={refs}>
                 <boxGeometry args={[0.5, 0.1, 0.05]} />
-                <meshStandardMaterial color={"purple"} />
+                <meshStandardMaterial color={"purple"} roughness={0.1} metalness={0.7}/>
             </mesh>
             <mesh position={[1, 0.1, -1.92]} ref={OtherPaddleRef}>
                 <boxGeometry args={[0.5, 0.1, 0.05]} />
-                <meshStandardMaterial color={"red"} />
+                <meshStandardMaterial color={"red"} roughness={0.1} metalness={0.7}/>
             </mesh>
         </>
         
