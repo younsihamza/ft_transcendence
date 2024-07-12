@@ -41,21 +41,23 @@ function PingPongGame() {
   
   return (
     <>
-      <div style={{ background: "white" }} className="h-[90%] w-[90%] flex flex-col items-center justify-center">
-        <Canvas   className="h-[100%] w-[90%] flex flex-col items-center justify-center">
-          <PerspectiveCamera ref={ref}
-            makeDefault
-            rotation={[0, 0 , 0]}
-            fov={75}
-            position={[0, 1,3.5]}
-          />
-          <ambientLight />
-          <Stage   adjustCamera={true} intensity={1}  environment="city" >
-            <Game />
-          </Stage>
-        </Canvas>
-        <button onClick={handleCamera}>Camera {currentCamera.current}</button>
+      <div className="h-[100%] w-[100%] flex flex-col items-center justify-center">
+        <div className="h-[50%] w-[90%] rounded-md flex justify-center items-center ">
+          <Canvas >
+            <PerspectiveCamera ref={ref}
+              makeDefault
+              rotation={[0, 0 , 0]}
+              fov={75}dd
+              position={[0, 1,3.5]}
+            />
+            <ambientLight />
+            <Stage   adjustCamera={true} intensity={1}  environment="city" >
+              <Game />
+            </Stage>
+          </Canvas>
+        </div>
       </div>
+        <button onClick={handleCamera}>Camera {currentCamera.current}</button>
     </>
   );
 }
