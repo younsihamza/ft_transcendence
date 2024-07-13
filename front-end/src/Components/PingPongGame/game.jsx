@@ -41,6 +41,8 @@ export default function Game()
           OtherPaddleRef.current.position.x = OtherX
 
 
+
+
       
       positionBall.current.x += positionBall.current.vx 
       positionBall.current.z += positionBall.current.vz
