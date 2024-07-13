@@ -48,9 +48,9 @@ function PingPongGame() {
   }
   return (
     <>
-      <div className="h-[100%] w-[100%] flex flex-col items-center justify-center">
+      <div className="h-[100%] w-[100%] flex flex-col items-center justify-center ">
         <Header gameName={"PING PONG"}/>
-        <div className=" h-[70%] relative xsm:w-[96%] md:w-[80%] max-w-[1400px] rounded-md flex justify-center items-center text-white flex-col bg-secondaryColor border-[2px] border-forthColor">
+        <div className=" h-[70%] relative xsm:w-[96%] md:w-[80%] max-w-[1400px] rounded-[20px] flex justify-center items-center text-white flex-col bg-secondaryColor border-[2px] border-forthColor">
         {status.endGame && <Win iswin={status.win}/>}
         <ScoreBar ref={score}/>
           <button className=" lg:h-[40px] lg:w-[60px] xsm:h-[20px] xsm:w-[40px]" onClick={handleCamera}> <VscDeviceCameraVideo className="h-[100%] w-[100%]" style={{color: 'white'}} /></button>

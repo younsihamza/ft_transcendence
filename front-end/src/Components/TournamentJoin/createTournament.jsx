@@ -9,7 +9,7 @@ export default function CreateTournament() {
         const newArray = [...tournaments,value]
         setTournaments(newArray)
     }
-    return (<div className='border  border-forthColor lg:w-[90%]  xsm:w-[90%]  text-white flex flex-col items-center h-[65%] justify-evenly bg-linkBgColor py-3 rounded-md'>
+    return (<div className='border  border-forthColor lg:w-[90%]  xsm:w-[90%]  text-white flex flex-col items-center h-[65%] justify-evenly bg-linkBgColor py-3 rounded-[20px]'>
         <div className='flex flex-col items-center'>
             <h1 className='font-Valorax text-[5vw] drop-shadow-2xl text-border' style={{ textShadow: `2px 2px 4px #BC9FD1` }}>PING PONG</h1>
             <h3 className='font-Valorax  text-[2vw]'>TOURNAMENT</h3>
