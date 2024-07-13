@@ -60,3 +60,7 @@
     -webkit-text-stroke: 0.1px #C77DFF; /* Adjust the pixel value and color as needed */
     color: white; /* Text color */
   }
+
+  .blurHelp {
+    backdrop-filter: blur(10px);
+  }

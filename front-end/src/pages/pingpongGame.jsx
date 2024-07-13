@@ -11,6 +11,7 @@ import Header from "../Components/PingPongGame/scoreBar&Header/Header";
 import { VscDeviceCameraVideo } from "react-icons/vsc";
 import Win from "../Components/PingPongGame/win";
 import { useMemo } from "react";
+import ScoreBar from "../Components/PingPongGame/scoreBar";
 
 
 
@@ -34,23 +35,24 @@ function PingPongGame() {
       currentCamera.current = 0 
     console.log(ref.current)
   }
+  const score = useRef()
   const map = useMemo(()=>[
     { name: 'leftOther', keys: ['ArrowLeft'] },
     { name: 'rightOther', keys: ['ArrowRight'] },
     { name: 'left', keys: [ 'KeyA'] },
     { name: 'right', keys: ['KeyD'] }
   ], [])
+  const [status , setStatus] = useState({win:false,endGame:false})
+  const handleWin = (win,endGame)=> {
+    setStatus(()=>({win:win, endGame:endGame}))
+  }
   return (
     <>
       <div className="h-[100%] w-[100%] flex flex-col items-center justify-center">
         <Header gameName={"PING PONG"}/>
         <div className=" h-[70%] relative xsm:w-[96%] md:w-[80%] max-w-[1400px] rounded-md flex justify-center items-center text-white flex-col bg-secondaryColor border-[2px] border-forthColor">
-        {/* <Win iswin={true}/> */}
-        <div className=" flex  px-5 mt-5 w-[100%] justify-center items-center  max-w-[1024px] xsm:gap-2 lg:gap-9 ">
-          <FirstPlayer name="hamza" level="6" image="hyounsi.png" score={2} />
-          <Timer />
-          <SecondPlayer name="hyounsi" level="3" image="ykhourba.jpeg" score={7}/>
-        </div>
+        {status.endGame && <Win iswin={status.win}/>}
+        <ScoreBar ref={score}/>
           <button className=" lg:h-[40px] lg:w-[60px] xsm:h-[20px] xsm:w-[40px]" onClick={handleCamera}> <VscDeviceCameraVideo className="h-[100%] w-[100%]" style={{color: 'white'}} /></button>
         <hr className="h-[2px] xsm:w-[95%] lg:w-[90%] max-w-[1400px] bg-thirdColor my-6"/>
           <Canvas >
@@ -60,7 +62,7 @@ function PingPongGame() {
             {/* <Environment preset='sunset'  background/> */}
             <Stage   adjustCamera={true} intensity={1}  environment="city" >
               <KeyboardControls map={map}>
-                <Game />
+                <Game ref={score} handleWin={handleWin} endGame={status.endGame}/>
               </KeyboardControls>
             </Stage>
           </Canvas>

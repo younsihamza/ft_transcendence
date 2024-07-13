@@ -58,9 +58,6 @@ export default {
         'poppins': ['poppins','sans-serif'],
         'inter': ['inter','sans-serif'],
       },
-      backdropFilter: {
-        'blur': 'blur(5px)',
-      },
     },
   },
   plugins: [],

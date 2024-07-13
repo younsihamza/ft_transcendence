@@ -7,8 +7,9 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE  from 'three'
 import Paddle from "./paddle";
 import { useKeyboardControls } from "@react-three/drei";
+import { forwardRef } from "react";
 
-export default function Game()
+function Game(props,scoreRef)
 {
 
   const BallRef =  useRef()
@@ -17,6 +18,8 @@ export default function Game()
   const positionBall = useRef({vx: 0.05, vz: 0.05, x: 0, z: 0.1 })
   const  [,get] = useKeyboardControls()
   useFrame(()=>{
+      if(props.endGame)
+          return 
       let move = get()
       const positionPaddle  = MyPaddleRef.current.position
       let x = positionPaddle.x
@@ -37,19 +40,33 @@ export default function Game()
           OtherX -= 0.04
       if(move.rightOther)
           OtherX += 0.04
-        
+
       if(OtherX >0.25 && OtherX < 1.75)
           OtherPaddleRef.current.position.x = OtherX
-
-
-
-
-
-
       positionBall.current.x += positionBall.current.vx 
       positionBall.current.z += positionBall.current.vz
       if( positionBall.current.z >= 2.8 || positionBall.current.z <= -2.8 )
           {
+              if(positionBall.current.z >= 2.8)
+                {
+                  let number = Number(scoreRef.current.Score2Ref.current.innerText) + 1
+                  if(number == 7)
+                    props.handleWin(false,true)
+                  if(number >= 10)
+                    scoreRef.current.Score2Ref.current.innerText = number
+                  else 
+                    scoreRef.current.Score2Ref.current.innerText = '0' + number
+                }
+                if(positionBall.current.z <= -2.8)
+                  {
+                    let number = Number(scoreRef.current.Score1Ref.current.innerText) + 1
+                    if(number == 7)
+                      props.handleWin(true,true)
+                    if(number >= 10)
+                      scoreRef.current.Score1Ref.current.innerText =  number
+                    else
+                      scoreRef.current.Score1Ref.current.innerText = '0' + number
+                  }
               positionBall.current.z = 0
               if(positionBall.current.vz < 0)
                   positionBall.current.vz = 0.05
@@ -61,7 +78,7 @@ export default function Game()
                   positionBall.current.vx = -0.05 
               positionBall.current.x = 1
           }
-      if( positionBall.current.x >= 2.01 || positionBall.current.x <= 0.01 )
+      if( positionBall.current.x >= 1.98 || positionBall.current.x <= 0.01 )
           positionBall.current.vx *= -1
       if((positionBall.current.z >= positionPaddle.z -0.05  && positionBall.current.z <= positionPaddle.z  )  &&
        (positionBall.current.x >= positionPaddle.x -0.3  && positionBall.current.x <= positionPaddle.x  + 0.3))
@@ -92,3 +109,4 @@ export default function Game()
       </>
     )
 }
+export default forwardRef(Game)
