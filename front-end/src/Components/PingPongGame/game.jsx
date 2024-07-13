@@ -27,6 +27,8 @@ export default function Game()
       if(x >0.25 && x < 1.75)
               MyPaddleRef.current.position.x  = x;
 
+
+      
       const positionOtherPaddle = OtherPaddleRef.current.position
       let OtherX = positionOtherPaddle.x
       if(OtherX - positionBall.current.x <=0.1  &&  positionBall.current.z < 0.2)
