@@ -24,6 +24,7 @@ export default function Game()
           x -= 0.04
       if (move.right)
           x += 0.04
+        
       if(x >0.25 && x < 1.75)
               MyPaddleRef.current.position.x  = x;
       const positionOtherPaddle = OtherPaddleRef.current.position
