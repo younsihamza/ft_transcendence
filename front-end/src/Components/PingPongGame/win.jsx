@@ -23,8 +23,8 @@ export default function Win({iswin})
                 </div>
             </div>
             <div className="w-[100%] flex justify-center gap-9  xsm:text-[8px] lg:text-[15px] ">
-                <button className="hover:opacity-75 xsm:w-[60px] xsm:h-[30px] lg:w-[120px]  lg:h-[40px] bg-secondaryColor font-inter lg:border-[2px] xsm:border-[1px]">PLAY AGAIN</button>
-                <button className="hover:opacity-75 xsm:w-[60px] xsm:h-[30px] lg:w-[120px] lg:h-[40px] bg-secondaryColor font-inter lg:border-[2px] xsm:border-[1px]">HOME</button>
+                <button className="xsm:w-[60px]  xsm:h-[30px] lg:w-[120px] lg:h-[40px] transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  duration-150 bg-secondaryColor font-inter lg:border-[2px] xsm:border-[1px] border-forthColor rounded-lg ">PLAY AGAIN</button>
+                <button className="xsm:w-[60px]  xsm:h-[30px] lg:w-[120px] lg:h-[40px] transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  duration-150 bg-secondaryColor font-inter lg:border-[2px] xsm:border-[1px] border-forthColor rounded-lg ">HOME</button>
             </div>
         </div>
     )
