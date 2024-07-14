@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ModelCreate from "./model.Create";
 import Tournament from "./tournament";
+import { useEffect } from "react";
 
 export default function CreateTournament() {
     const [ismodel, setIsmodel] = useState(false)
@@ -9,6 +10,16 @@ export default function CreateTournament() {
         const newArray = [...tournaments,value]
         setTournaments(newArray)
     }
+    useEffect(()=>{
+        const fechData = async () =>{
+            const responce = await fetch('/api/tournament')
+            const  data = await responce.json()
+            setTournaments(data)
+            console.log(data)
+        }
+        fechData()
+    },[])
+
     return (<div className='border  border-forthColor lg:w-[90%]  xsm:w-[90%]  text-white flex flex-col items-center h-[65%] justify-evenly bg-linkBgColor py-3 rounded-[20px]'>
         <div className='flex flex-col items-center'>
             <h1 className='font-Valorax text-[5vw] drop-shadow-2xl text-border xsm:text-[30px] lg:text-[50px] text-border' style={{ textShadow: `2px 2px 4px #BC9FD1` }}>PING PONG</h1>
@@ -22,7 +33,7 @@ export default function CreateTournament() {
             <div className='h-[1px] w-[100%] bg-white' />
 
             <div className="text-xl font-bold overflow-auto flex flex-col gap-5">
-                {tournaments.map((item , index)=><Tournament key={index} gameName={item.gameName} players={item.players} />)}
+                {tournaments.map((item , index)=><Tournament key={index} mode={item.mode} players={item.users.length} />)}
             </div>
         </div>
        {ismodel && <ModelCreate setTournaments={addNewTournament} setIsmodel={setIsmodel}/>}

@@ -23,7 +23,6 @@ export default function ModelCreate({ setTournaments, setIsmodel }) {
         e.preventDefault()
         const fd = new FormData(e.target)
         const data = Object.fromEntries(fd.entries())
-        console.log(data)
         const players = []
         for(let item in data)
         {
@@ -32,6 +31,7 @@ export default function ModelCreate({ setTournaments, setIsmodel }) {
                 return toast.error('the name of the players should not be empty or contain only spaces', {theme:'dark'})
             players.push(name)
         }
+        players.splice(1,1)
         for(let i  = 0 ; i < players.length ; i++)
             {
                 if(players.includes(players[i],i+1))
@@ -40,7 +40,10 @@ export default function ModelCreate({ setTournaments, setIsmodel }) {
                     return
                 }
             }
-        setTournaments({ gameName: value == 1 ? "ONLINE" : "OFFLINE", players: valuePlayers, number: 0, player: players });
+            console.log(players)
+        const dataSend = {mode: value == 1 ? "ONLINE" : "OFFLINE" , users:players}
+        fetch('/api/tournament',{method: 'POST', body: JSON.stringify(dataSend)})
+        setTournaments({ mode: value == 1 ? "ONLINE" : "OFFLINE", players: valuePlayers, number: 0, users: players  });
         setIsmodel(false)
     }
     return (<div className='absolute top-0 bottom-0 left-0 right-0 bg-opacity-60  z-10  flex justify-center items-center blurHelp'>
