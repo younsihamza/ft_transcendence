@@ -15,9 +15,9 @@ function ScoreBar({},ref)
     }))
     return <>
         <div className=" flex  px-5 mt-5 w-[100%] justify-center items-center  max-w-[1024px] xsm:gap-2 lg:gap-9 ">
-          <FirstPlayer name="hamza" level="6" image="hyounsi.png" score={2} ref={Score1Ref}/>
+          <FirstPlayer name="hamza" level="6" image="/hyounsi.png" score={2} ref={Score1Ref}/>
           <Timer />
-          <SecondPlayer name="hyounsi" level="3" image="ykhourba.jpeg" score={7} ref={Score2Ref}/>
+          <SecondPlayer name="hyounsi" level="3" image="/ykhourba.jpeg" score={7} ref={Score2Ref}/>
         </div>
     </>
 }

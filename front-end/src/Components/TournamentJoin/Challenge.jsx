@@ -1,8 +1,6 @@
 import { useState } from "react";
 import Friend from "./Friend";
-import { FaArrowCircleRight} from 'react-icons/fa';
 import { IoIosArrowUp } from "react-icons/io";
-// import { ChallengeData } from "../data/challangeData";
 import { ToastContainer } from 'react-toastify';
 import { useEffect } from "react";
 
