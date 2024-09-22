@@ -11,7 +11,7 @@ const LoginPage = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const response = await fetch('http://localhost/api/auth/jwt/create', {
+        const response = await fetch(`http://${import.meta.env.VITE_BACKEND_URL}/api/auth/jwt/create`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, password })
@@ -19,7 +19,6 @@ const LoginPage = () => {
 
         if (response.ok) {
             const tokens = await response.json();
-            console.log(tokens)
             login({tokens });
             navigate('/');
         } else {

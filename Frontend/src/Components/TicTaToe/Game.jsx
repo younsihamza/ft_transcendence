@@ -9,8 +9,8 @@ import Win from './Win';
 import StartModal from './StartModal'
 import ReconnectModal from './ReconnectModal'
 
-const WS_ONLINE_URL = 'ws://localhost/ws/game/tictactoe';
-const WS_OFFLINE_URL = 'ws://localhost/ws/game/tictactoe/offline';
+const WS_ONLINE_URL = `ws://${import.meta.env.VITE_BACKEND_URL}/ws/game/tictactoe`;
+const WS_OFFLINE_URL = `ws://${import.meta.env.VITE_BACKEND_URL}/ws/game/tictactoe/offline`;
 
 const GRID_POSITIONS = [
     [-1, 1, 0], [0, 1, 0], [1, 1, 0],

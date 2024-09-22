@@ -47,14 +47,13 @@ export default function Win({iswin, game_id})
         const fetch_game = async ()=>{
             let url = null
             if (location.state.isonline == true)
-                url = `http://localhost/api/pingpong/game/pingpong/${game_id}/`
+                url = `http://${import.meta.env.VITE_BACKEND_URL}/api/pingpong/game/pingpong/${game_id}/`
             else
-                url = `http://localhost/api/pingpong/game/pingpong/offline/${game_id}/`
+                url = `http://${import.meta.env.VITE_BACKEND_URL}/api/pingpong/game/pingpong/offline/${game_id}/`
             const response = await fetch(url,{
                 headers: {Authorization : "JWT " + tokens.access}
             })
             const data = await response.json()
-            console.log("data winner  : ", data)
             if (location.state.isonline == false)
                 setGame(data)
             else if (data.player1.username == username)

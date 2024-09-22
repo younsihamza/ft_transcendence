@@ -20,7 +20,6 @@ export default function Friend({ icon = false, gameName, hidden = false, PlayerN
                 game: gameType
             });
             socket.send(message);
-            console.log("send message :", PlayerName)
         } else {
             console.error('WebSocket is not open. Unable to send game request.');
         }

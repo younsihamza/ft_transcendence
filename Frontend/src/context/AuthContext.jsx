@@ -29,12 +29,12 @@ export const AuthProvider = ({ children }) => {
     }
 
     const global_socket = () => {
-        const ws = new WebSocket(`ws://localhost/ws/notifications/?token=${tokens.access}`)
+        const ws = new WebSocket(`ws://${import.meta.env.VITE_BACKEND_URL}/ws/notifications/?token=${tokens.access}`)
         
         ws.onopen = () => {
             setSocket(ws);
             console.log('WebSocket connected');
-            axios.get('http://localhost/api/auth/users/me/',
+            axios.get(`http://${import.meta.env.VITE_BACKEND_URL}/api/auth/users/me/`,
                 {
                     headers: {
                         "Authorization": "JWT " + tokens.access
@@ -61,13 +61,12 @@ export const AuthProvider = ({ children }) => {
         };
         ws.onmessage  = (e) =>{
             const data = JSON.parse(e.data);
-            console.log(data)
             setSocketMessage(data)
         }
     }
 
     const createSocket = ()=> {
-        let ws = new WebSocket(`ws://localhost/ws/chat/?token=${tokens.access}`)
+        let ws = new WebSocket(`ws://${import.meta.env.VITE_BACKEND_URL}/ws/chat/?token=${tokens.access}`)
          ws.onopen = (e)=> {
              setChatSocket(()=>ws)
              console.log("socket opened")

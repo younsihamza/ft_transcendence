@@ -15,9 +15,9 @@ function Score() {
     useEffect(() => {
         async function fetchData() {
             if (location.state?.isonline == true)
-                fetch_url = `http://localhost/api/user_data/${location.state?.gameid}`
+                fetch_url = `http://${import.meta.env.VITE_BACKEND_URL}/api/user_data/${location.state?.gameid}`
             else
-                fetch_url = `http://localhost/api/offline_user_data/${location.state?.gameid}`
+                fetch_url = `http://${import.meta.env.VITE_BACKEND_URL}/api/offline_user_data/${location.state?.gameid}`
             const response = await fetch(fetch_url, {
                 headers: {
                     "Authorization": "JWT " + tokens.access,
